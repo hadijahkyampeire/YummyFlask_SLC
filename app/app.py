@@ -21,7 +21,15 @@ def signup():
             User[email]= p_word
             return redirect (url_for('showlogin'))
     return render_template('signup.html' )
-
+@app.route('/showlogin', methods=['GET','POST'])
+def showlogin():
+    error=None
+    if request.method=='POST':
+        if request.form['email_field'] not in User.keys() or request.form['password_field'] not in User.values():
+            error='invalid credentials'
+        else:
+            return redirect(url_for('addrecipes'))
+    return render_template('login.html',error = error)
 
 if __name__=="__main__":
     app.run(debug=True)
