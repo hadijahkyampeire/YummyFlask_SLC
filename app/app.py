@@ -30,6 +30,26 @@ def showlogin():
         else:
             return redirect(url_for('addrecipes'))
     return render_template('login.html',error = error)
+@app.route('/addrecipes', methods=['GET','POST'])
+def addrecipes():
+    if request.method=='POST':
+        title=request.form['title']
+        item1=request.form['item1']
+        item2=request.form['item2']
+        item3=request.form['item3']
+        item4=request.form['item4']
+        if title and item1:
+            Recipes['title']=title
+            Recipes['item1']=item1
+            Recipes['item2']=item2
+            Recipes['item3']=item3
+            Recipes['item4']=item4
+            return redirect(url_for('recipes'))
+    return render_template('add recipe.html')
+@app.route("/recipes")
+def recipes():
+    return render_template('view.html',  title=Recipes['title'], item1=Recipes['item1'], item2=Recipes['item2'], 
+        item3=Recipes['item3'], item4=Recipes['item4'])
 
 if __name__=="__main__":
     app.run(debug=True)
