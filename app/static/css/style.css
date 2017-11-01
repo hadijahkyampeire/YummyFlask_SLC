@@ -1,0 +1,97 @@
+html{
+	background: url(../images/image3.jpg); 
+    no repeat;
+	width:100%;
+}
+#topbar{
+    text-align: center;
+    background: palegreen;
+}
+#main {
+    padding-right: 100px;
+    padding-left: 100px;
+    text-align: center; 
+}
+#header {
+    padding-top: 5px;
+    padding-left:80px;
+    padding-right: 80px; 
+    text-align: center; 
+}
+#background{
+	padding-left: 200px;
+	padding-right: 200px;
+}
+#navmenu ul {display: inline; 
+	padding: 5px 20px 5px 20px  5px 20px 5px; color: green;
+	padding-left: 400px;
+    float:right;
+     }
+#recipebar{
+    background: lightgrey;
+}
+#signup {
+	position:absolute;
+	z-index: 10;
+	border:0;
+    background: green;
+    width: 100px;
+    height: 20px;
+    padding-bottom: 20px;
+}
+#logbar{
+background: lightblue;
+text-align: center;
+}
+#save {
+	position:absolute;
+	z-index: 10;
+	border:1;
+    background: green;
+    width: 200px;
+    height: 30px;
+    padding-bottom: 20px;
+}
+#signin{
+    background: blue;
+    width: 80px;
+    height: 50px;
+}
+#home{
+    background: lightgrey;
+    width: 80px;
+    height: 50px;
+}
+#view{
+    background: lightblue;
+    width: 150px;
+    height: 50px;
+}
+}
+.footer{
+    text-align: center;
+    background: lightblue;
+}
+
+#words{
+text-align: center;
+
+}
+
+#sidebar h3 {
+    font-size: 24px;
+    color: #044055;
+    font-weight: normal;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+#sidebar {
+    float: center;
+    margin-left: 0px;
+    margin-top: 0px;
+    background: grey;
+    border: 1px solid #BEBDBD;
+    padding: 0px; 
+    width: 1000;
+    height: 1000;
+}
