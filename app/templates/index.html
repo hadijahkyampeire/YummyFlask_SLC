@@ -19,9 +19,11 @@
  <div id="navmenu">
  <ul>
           <h2>
-          <input type="button"  id="home" name="home" value="HOME">
+          <a href="{{url_for('main')}}"><input type="button"  id="home" name="home" value="HOME">
          <a href="{{url_for('showlogin')}}"><input type="button"   id="signin" name="signin" value="LOGIN"></a>
-         <a href="{{url_for('showlogin')}}"><input type="button" id="view" name="view" value="View Recipes"> </a>
+         <a href="{{url_for('recipes')}}"><input type="button" id="view" name="view" value="View Recipes"> </a>
+         <h3>First signup below to create an account</h3>
+          <a href="{{url_for('signup')}}"><input type="button"  id ="signup" name="signup" value= "SIGNUP HERE"></a>
               </h2>
               </ul>
               </div>
@@ -31,13 +33,10 @@
             <div id="words">
                 <h3>About the Yummy Recipes</h3>
                 <h3><p>You will be able to create a food recipe of your wish and you can manipulate data within your recipe category</p></h3></li>
-                <h3>First signup below to create an account</h3>
+                
                 </div>
-            <form>
-            <a href="{{url_for('signup')}}"><input type="button"  id ="signup" name="signup" value= "SIGNUP HERE"></a>
-            </form>
-
             </div>
+           
           
             
          

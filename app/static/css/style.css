@@ -23,21 +23,19 @@ html{
 	padding-right: 200px;
 }
 #navmenu ul {display: inline; 
-	padding: 5px 20px 5px 20px  5px 20px 5px; color: green;
-	padding-left: 400px;
+	padding: 5px 20px 5px 20px  5px 20px 5px 20px 5px; color: green;
+	padding-left: 300px;
     float:right;
+    background: black;
      }
 #recipebar{
     background: lightgrey;
 }
 #signup {
-	position:absolute;
-	z-index: 10;
 	border:0;
     background: green;
-    width: 100px;
+    width: 90px;
     height: 20px;
-    padding-bottom: 20px;
 }
 #logbar{
 background: lightblue;
@@ -54,18 +52,18 @@ text-align: center;
 }
 #signin{
     background: blue;
-    width: 80px;
-    height: 50px;
+    width: 70px;
+    height: 20px;
 }
 #home{
     background: lightgrey;
-    width: 80px;
-    height: 50px;
+    width: 70px;
+    height: 20px;
 }
 #view{
     background: lightblue;
-    width: 150px;
-    height: 50px;
+    width: 120px;
+    height: 20px;
 }
 }
 .footer{
@@ -94,4 +92,8 @@ text-align: center;
     padding: 0px; 
     width: 1000;
     height: 1000;
+}
+.footer{
+    background: lightblue;
+    text-align: center;
 }
