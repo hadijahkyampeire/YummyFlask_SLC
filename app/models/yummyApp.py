@@ -1,12 +1,16 @@
+from app.models.user import User
+
 class Yummyapp(object):
 	"""docstring for Yummyapp"""
 	def __init__(self):
-		self.User = {}
+		self.the_users = {}
+
 	def create_user(self, first_name,last_name,email,password):
-		self.FirstName=first_name
-		self.LastName=last_name
-		self.Email=email
-		self.Password=password
+		
+		if email not in self.the_users:
+			new_user = User(first_name,last_name,email,password)
+			the_users[email] = new_user
+			return new_user
 
 	def login(self,email,password):
 		self.Email=email
@@ -14,3 +18,7 @@ class Yummyapp(object):
 	
 	def logout():
 		pass
+
+# y = Yummyapp()
+# c= y.create_user('a','b','a@a', 'dd')
+# print(c.email)

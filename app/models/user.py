@@ -1,18 +1,12 @@
-class User_functionalities(object):
+class User(object):
 	"""docstring for User_functionalities"""
-	def __init__(self, category_name, recipe1,recipe2,recipe3,recipe4):
-		self.Recipe_Category = category_name
-		self.Item1=recipe1
-		self.Item2=recipe2
-		self.Item3=recipe3
-		self.Item4=recipe4
+	def __init__(self, first_name,last_name,email,password):
+		self.first_name=first_name
+		self.last_name=last_name
+		self.email=email
+		self.password=password
 
-	def create_category(self, category_name, recipe1,recipe2,recipe3,recipe4):
-		self.Recipe_Category = category_name
-		self.Item1=recipe1
-		self.Item2=recipe2
-		self.Item3=recipe3
-		self.Item4=recipe4
-			pass	
+
+
 
 		
