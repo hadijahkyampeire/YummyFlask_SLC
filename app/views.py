@@ -1,7 +1,8 @@
+from app import app
 from flask import request
 from flask import Flask, render_template,url_for,redirect
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret'
+
+
 User={}
 Recipes={}
 
@@ -51,6 +52,3 @@ def recipes():
     return render_template('view.html',  title=Recipes['title'], item1=Recipes['item1'], item2=Recipes['item2'], 
         item3=Recipes['item3'], item4=Recipes['item4'])
 
-if __name__=="__main__":
-    app.run(debug=True)
-    
