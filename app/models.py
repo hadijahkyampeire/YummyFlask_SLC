@@ -1,7 +1,6 @@
 
 class User(object):
     """docstring for User_functionalities"""
-    """ constructor"""
 
     def __init__(self, first_name, last_name, email, password):
         self.first_name = first_name
