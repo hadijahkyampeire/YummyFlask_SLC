@@ -30,7 +30,7 @@
 </div>
     {% for name, category in categories.items() %}
     <ul>
-        <li><h3><a href="{{ url_for('add_recipe',current_category_title=name) }}" class="text-muted">{{name}}</a>
+        <li><h3><a href="{{ url_for('show_recipe',category_title=name) }}" class="text-muted">{{name}}</a>
                 <a href="{{url_for('edit_category',title=name)}}"><input type='button' value='Edit Category'/></a>
                 <a href="{{url_for('delete_category',title=name)}}"><input type='submit' value='Delete Category'/></a>
             </h3>

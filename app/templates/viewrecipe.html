@@ -1,17 +1,17 @@
 {% block heading %} 
 <div>
-    <a href="/category" class="text-muted">MY RECIPES</a>
-    <a > - {{ session['current_category_title'] }}</a>
+    <a href="/category" class="text-muted">VIEW MY RECIPES CATEGORIES</a>
+    <br><h3>Recipe Category
+    <a > - {{ session['current_category_title'] }}</a></h3>
 </div>    
-<a href="{{ url_for('add_recipe') }}" class="btn text-muted">Add recipe</a>                
+<h3><a href="{{ url_for('add_recipe') }}" class="btn text-muted">Add recipe to the above category</a> </h3>               
 {% endblock %}
- {% for Recipe, recipe in recipes.items() %}
+ {% for name, recipe in recipes.items() %}
             
-                <h2 >{{ name }}</h2>
-                <h2>{{contents}}</h2>
-                <h2>{{instructions}}</h2>
-                    
-                </div>
+                <h3 >RecipeName: {{ name }}</h3>
+                <h3>Recipe Contents:{{ recipe.contents }}</h3>
+                <h3>Recipe instructions:{{  recipe.instructions }}</h3>
+                <a href="{{url_for('delete_recipe',name=name)}}"><input type='submit' value='Delete Recipe'/></a>
            
     {% endfor %}
  
