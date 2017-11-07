@@ -11,7 +11,7 @@ class User(object):
 
     def add_category(self, title):
         """ add category method"""
-        if not title in self.categories:
+        if  title not in self.categories and title !="" and title!=" ":
             self.categories[title] = Category(title)
             return True
         return False

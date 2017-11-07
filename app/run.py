@@ -71,7 +71,7 @@ def add_category():
                              ].add_category(request.form['title'])
         if return_value == True:
             return redirect(url_for('category'))
-    return render_template('dashboard.html')
+    return render_template('dashboard.html', categories=Users[session['email']].categories)
 
 
 @app.route('/delete_category/<title>', methods=['POST', 'GET'])
@@ -83,15 +83,18 @@ def delete_category(title):
         flash(result, 'warning')
     return redirect(url_for('category'))
 
-@app.route('/edit_category/<title>', methods = ['POST','GET'])
+
+@app.route('/edit_category/<title>', methods=['POST', 'GET'])
 def edit_category(title):
     session['category_title'] = title
-    if request.method =='POST':
-        return_value = Users[session['email']].edit_category(session['category_title'],request.form['title'])
+    if request.method == 'POST':
+        return_value = Users[session['email']].edit_category(
+            session['category_title'], request.form['title'])
         if return_value == True:
             return redirect(url_for('category'))
-            flash ("edited category")
+            flash("edited category")
     return render_template('editcategory.html')
+
 
 @app.route('/show_recipe/<category_title>', methods=['GET', 'POST'])
 def show_recipe(category_title):
@@ -99,7 +102,9 @@ def show_recipe(category_title):
     session['current_category_title'] = category_title
     return render_template('viewrecipe.html', recipes=Users[session['email']]
                            .categories[category_title].recipes)
-@app.route('/add_recipe',methods=['GET', 'POST'])
+
+
+@app.route('/add_recipe', methods=['GET', 'POST'])
 def add_recipe():
     """ Handles new addition of recipes requests """
     if request.method == 'POST':
@@ -108,9 +113,20 @@ def add_recipe():
         if result == True:
             flash("recipe added")
         else:
-            flash(result, 'warning')
+            flash("Not added")
         return redirect(url_for('show_recipe', category_title=session['current_category_title']))
     return render_template('addrecipe.html', recipes=Users[session['email']]
-                           .categories[session['current_category_title']].recipes)                          
+                           .categories[session['current_category_title']].recipes)
+@app.route('/delete_recipe/<name>',methods=['GET', 'POST'])
+def delete_recipe(name):
+    """ Handles request to delete a recipe """
+    result = Users[session['email']].categories[session['current_category_title']].delete_recipe(
+        name)
+    if result == True:
+        flash("deleted")
+    else:
+        flash("not deleted")
+    return redirect(url_for('show_recipe', category_title=session['current_category_title']))
+
 if __name__ == "__main__":
     app.run(debug=True)
