@@ -51,6 +51,9 @@ html{
 #signbar{
 background: blueviolet;
 }
+#views{
+background: lightgrey;
+}
 #logbar{
     background: lightgreen;
     text-align: center;
