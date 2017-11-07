@@ -1,11 +1,10 @@
 
 from flask import Flask, flash, render_template, session, url_for, redirect, request
-from models import User
+from models import User, Category, Recipe
 
 app = Flask(__name__)
 app.secret_key = 'secret'
 Users = {}
-categories = {}
 
 
 def register(firstname, lastname, email, password):
@@ -59,51 +58,59 @@ def showlogin():
     return render_template('login.html')
 
 
-@app.route('/category')
+@app.route('/category', methods=['POST', 'GET'])
 def category():
-    return render_template('dashboard.html')
+
+    return render_template('dashboard.html', categories=Users[session['email']].categories)
 
 
 @app.route('/add_category', methods=['GET', 'POST'])
 def add_category():
     if request.method == 'POST':
-        title = request.form['title']
-        if title:
-            categories['title'] = title
-
-        return redirect(url_for('list'))
-    return render_template('add category.html')
-@app.route("/list")
-def list():
-    return render_template('view.html',  title=categories['title'])
-
-# @app.route('/addcategory', methods=['GET', 'POST'])
-# def addcategory():
-#     if request.method == 'POST':
-#         returnvalue = User.add_category('title')
-#         if returnvalue == True:
-#                return redirect(url_for('recipes'))
-#                flash("category added")
-#     if request.method=='GET':
-#           return render_template('add recipe.html')
-    # title = request.form['title']
-    # item1 = request.form['item1']
-    # item2 = request.form['item2']
-    # item3 = request.form['item3']
-    # item4 = request.form['item4']
-    # if title and item1:
-    #     Recipes['title']=title
-    #     Recipes['item1']=item1
-    #     Recipes['item2']=item2
-    #     Recipes['item3']=item3
-    #     Recipes['item4']=item4
+        return_value = Users[session['email']
+                             ].add_category(request.form['title'])
+        if return_value == True:
+            return redirect(url_for('category'))
+    return render_template('dashboard.html')
 
 
-# @app.route("/recipes")
-# def recipes():
-#     return render_template('view.html')
-#  title=Recipes['title'] )
-    # item1=Recipes['item1'], item2=Recipes['item2'],
-    #     item3=Recipes['item3'], item4=Recipes['item4'])
+@app.route('/delete_category/<title>', methods=['POST', 'GET'])
+def delete_category(title):
+    result = Users[session['email']].delete_category(title)
+    if result == True:
+        flash("delete successful")
+    else:
+        flash(result, 'warning')
+    return redirect(url_for('category'))
+
+@app.route('/edit_category/<title>', methods = ['POST','GET'])
+def edit_category(title):
+    session['category_title'] = title
+    if request.method =='POST':
+        return_value = Users[session['email']].edit_category(session['category_title'],request.form['title'])
+        if return_value == True:
+            return redirect(url_for('category'))
+            flash ("edited category")
+    return render_template('editcategory.html')
+
+@app.route('/show_recipe/<category_title>', methods=['GET', 'POST'])
+def show_recipe(category_title):
+    """ Handles displaying recipes """
+    session['current_category_title'] = category_title
+    return render_template('viewrecipe.html', recipes=Users[session['email']]
+                           .categories[category_title].recipes)
+@app.route('/add_recipe',methods=['GET', 'POST'])
+def add_recipe():
+    """ Handles new addition of recipes requests """
+    if request.method == 'POST':
+        result = Users[session['email']].categories[session['current_category_title']].add_recipe(
+            request.form['name'], request.form['contents'], request.form['instructions'])
+        if result == True:
+            flash("recipe added")
+        else:
+            flash(result, 'warning')
+        return redirect(url_for('show_recipe', category_title=session['current_category_title']))
+    return render_template('addrecipe.html', recipes=Users[session['email']]
+                           .categories[session['current_category_title']].recipes)                          
 if __name__ == "__main__":
     app.run(debug=True)
