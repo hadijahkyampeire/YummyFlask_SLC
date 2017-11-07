@@ -1,6 +1,5 @@
 import unittest
-from models import User, Category, Recipe
-
+from .models import User, Category, Recipe
 
 class UserTest(unittest.TestCase):
     """ usertest class setup"""
