@@ -48,6 +48,9 @@ html{
     width: 80px;
     height: 30px;
 }
+#signbar{
+background: blueviolet;
+}
 #logbar{
     background: lightgreen;
     text-align: center;
