@@ -1,0 +1,17 @@
+{% block heading %} 
+<div>
+    <a href="/category" class="text-muted">MY RECIPES</a>
+    <a > - {{ session['current_category_title'] }}</a>
+</div>    
+<a href="{{ url_for('add_recipe') }}" class="btn text-muted">Add recipe</a>                
+{% endblock %}
+ {% for Recipe, recipe in recipes.items() %}
+            
+                <h2 >{{ name }}</h2>
+                <h2>{{contents}}</h2>
+                <h2>{{instructions}}</h2>
+                    
+                </div>
+           
+    {% endfor %}
+ 

@@ -1,10 +1,20 @@
 html{
 	background: url(../images/image3.jpg); 
-    no repeat;
-	width:100%;
+    
 }
-#topbar{
-    text-align: center;
+
+.section{
+	background-color:grey;
+	height:575px;
+	width:1050px;
+	float:right;
+	opacity:0.9;
+
+	border-radius:15px;
+
+}
+#updatebar{
+    text-align: left;
     background: palegreen;
 }
 #main {
@@ -22,23 +32,26 @@ html{
 	padding-left: 200px;
 	padding-right: 200px;
 }
-#navmenu ul {display: inline; 
-	padding: 5px 20px 5px 20px  5px 20px 5px; color: green;
-	padding-left: 400px;
-    float:right;
-     }
+  #nav  {
+     padding: 50px;
+    background-color:red;
+    border: 5px solid green;
+   /*( width:300px;
+    height:80px;*/
+  
+    }
 #recipebar{
     background: lightgrey;
 }
 #signup {
-	position:absolute;
-	z-index: 10;
-	border:0;
     background: green;
-    width: 100px;
-    height: 20px;
-    padding-bottom: 20px;
+    width: 80px;
+    height: 30px;
 }
+#logbar{
+    background: lightgreen;
+    text-align: center;
+    }
 #logbar{
 background: lightblue;
 text-align: center;
@@ -55,19 +68,14 @@ text-align: center;
 #signin{
     background: blue;
     width: 80px;
-    height: 50px;
+    height: 30px;
 }
 #home{
     background: lightgrey;
     width: 80px;
-    height: 50px;
+    height: 30px;
 }
-#view{
-    background: lightblue;
-    width: 150px;
-    height: 50px;
-}
-}
+
 .footer{
     text-align: center;
     background: lightblue;

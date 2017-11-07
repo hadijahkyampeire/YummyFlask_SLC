@@ -16,7 +16,7 @@
         </div>
     
         <section>
-            <form method="post" action="/add_category">
+            <form method="post" action="{{url_for('add_category')}}">
                 <fieldset>
  
                     <h2><legend>Create Your Yummy Recipes</legend></h2>
@@ -24,7 +24,7 @@
                         <h3><label >Recipe category</label></h3>
                             <input type="text" name="title"  placeholder="recipe category" >
                     <br>
-                    <p><a href="{{url_for('list')}}"><input type='button' value='Save Category'/></a>
+                    <input type='submit' value='Save Category'/>
  </fieldset>
  </form>
                     
