@@ -1,0 +1,18 @@
+{% block form %} 
+    
+        <h3 >CREATE RECIPES HERE</h2>
+            <fieldset>
+        <form  method="POST" action="">
+            <label for="recipename" ><h2>Recipe name </h2></label>
+            <input type="text"  id="recipename" name="name" placeholder="e.g pillawo" required>
+            <label for="recipecontents" ><h2>Recipe contents </h2></label>
+            <textarea  name="contents" placeholder="e.g pillawo,add rice and meat" rows="5" cols="10" required ></textarea>
+            <label for="instructions" ><h2>Instructions </h2></label>
+            <textarea  id="recipename" name="instructions" placeholder="e.g add this after this" rows="10" cols="15" required></textarea>
+            <h3><button type="submit" >Create Recipe</button></h3>
+            <a href="{{ url_for('show_recipe',category_title=session['category_title']) }}"></a>
+        </form>
+    </fieldset>
+    </div>
+</div>
+{% endblock %}  

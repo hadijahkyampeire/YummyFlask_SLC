@@ -1,10 +1,16 @@
-html{
-	background: url(../images/image3.jpg); 
-    no repeat;
-	width:100%;
+
+.section{
+	background-color:grey;
+	height:575px;
+	width:1050px;
+	float:right;
+	opacity:0.9;
+
+	border-radius:15px;
+
 }
-#topbar{
-    text-align: center;
+#updatebar{
+    text-align: left;
     background: palegreen;
 }
 #main {
@@ -13,30 +19,40 @@ html{
     text-align: center; 
 }
 #header {
-    padding-top: 5px;
-    padding-left:80px;
-    padding-right: 80px; 
-    text-align: center; 
+   padding: 5px;
+   background-color: grey;
+   height: 180;  
 }
-#background{
-	padding-left: 200px;
-	padding-right: 200px;
-}
-#navmenu ul {display: inline; 
-	padding: 5px 20px 5px 20px  5px 20px 5px 20px 5px; color: green;
-	padding-left: 300px;
-    float:right;
-    background: black;
-     }
+#menu{
+    float: right;
+    padding-top: 80px;
+}  
 #recipebar{
     background: lightgrey;
 }
 #signup {
-	border:0;
     background: green;
-    width: 90px;
-    height: 20px;
+    width: 180px;
+    height: 80px;
 }
+#signin{
+    background: blue;
+    width: 120px;
+    height: 80px;
+}
+#welcome{
+   text-align: center; 
+}
+#signbar{
+background: lightcyan;
+}
+#views{
+background: lightgrey;
+}
+#logbar{
+    background: lightgreen;
+    text-align: center;
+    }
 #logbar{
 background: lightblue;
 text-align: center;
@@ -65,17 +81,15 @@ text-align: center;
     width: 120px;
     height: 20px;
 }
-}
 .footer{
     text-align: center;
     background: lightblue;
+    padding-bottom: 5px;
+    height: 40px;
 }
-
 #words{
 text-align: center;
-
 }
-
 #sidebar h3 {
     font-size: 24px;
     color: #044055;
@@ -92,8 +106,4 @@ text-align: center;
     padding: 0px; 
     width: 1000;
     height: 1000;
-}
-.footer{
-    background: lightblue;
-    text-align: center;
 }

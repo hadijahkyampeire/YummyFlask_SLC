@@ -1,0 +1,30 @@
+<html>
+<head>
+<link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<div id="header">
+    <a href="{{url_for('main')}}"><image src="../static/images/image4.jpg" width="180" height="160" style="border-radius:15px;"></image></a>
+<div id="menu">
+    <a href="{{url_for('main')}}"><input type="button"    name="logout" value="LOGOUT"></a>
+    <a href="{{url_for('category')}}"><input type="button"    name="category" value="View categories"></a>
+    <a href="{{url_for('add_recipe')}}"><input type="button"    name="addrecipe" value="Add recipes"></a>                      
+</div>
+</div>
+{% block heading %}     
+<h1>Category
+        <a > - {{ session['current_category_title'] }}</a></h1>
+{% endblock %}
+<fieldset>
+ {% for name, recipe in recipes.items() %}
+    
+    <ul><li><h2 >RecipeName: {{ name }}</h2></li>
+                <h3>Contents: {{ recipe.contents }}</h3>
+                <h3>Instructions: {{  recipe.instructions }}</h3>
+                <a href="{{url_for('delete_recipe',name=name)}}"><input type='submit' value='Delete Recipe'/></a>
+                <a href="{{url_for('update_recipe',name=name)}}"><input type='submit' value='Update Recipe'/></a>
+            </ul>
+    {% endfor %}
+</fieldset>
+
+    </html>

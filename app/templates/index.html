@@ -3,53 +3,29 @@
  
 <head>
     <title>Hadijahz Python Flask Yummy Recipes App</title>
-<link rel="stylesheet" href="static/css/style.css">
+<link rel="stylesheet" href="../static/css/style.css">
  
 </head>
-<div id="main">
-<div id="background">
-<div id="topbar">
-<div id="header">
-            <h2 >Python Flask Yummy Recipes App</h2>
-            </div>
-            <h3> The fact that there is a challenge of keeping track of food recipes, this App provides a platform for people to store and share their recipes.</h3>
-        <h1> Here is the User Dashboard Menu</h1>
-  </div>
-<body>
- <div id="navmenu">
- <ul>
-          <h2>
-          <a href="{{url_for('main')}}"><input type="button"  id="home" name="home" value="HOME">
-         <a href="{{url_for('showlogin')}}"><input type="button"   id="signin" name="signin" value="LOGIN"></a>
-         <a href="{{url_for('recipes')}}"><input type="button" id="view" name="view" value="View Recipes"> </a>
-         <h3>First signup below to create an account</h3>
-          <a href="{{url_for('signup')}}"><input type="button"  id ="signup" name="signup" value= "SIGNUP HERE"></a>
-              </h2>
-              </ul>
-              </div>
-              <div id="sidebar">
+
+<body background="../static/images/bg.jpg">
+    
         
-            <h1>Welcome to the Yummy Recipe App</h1>
-            <div id="words">
-                <h3>About the Yummy Recipes</h3>
-                <h3><p>You will be able to create a food recipe of your wish and you can manipulate data within your recipe category</p></h3></li>
-                
-                </div>
-            </div>
-           
-          
-            
-         
-            
-            <div style="clear:both"></div>
+<div id="header">
+        <a href="{{url_for('main')}}"><image src="../static/images/image4.jpg" width="180" height="160" style="border-radius:15px;"></image></a>
+    <div id="menu">
+        <a href="{{url_for('showlogin')}}"><input type="button"   id="signin" name="signin" value="LOGIN"></a>
+    <a href="{{url_for('signup')}}"><input type="button"  id ="signup" name="signup"  value= "SIGNUP "></a>                        
+</div>                
  
-        <footer class="footer">
-            <p>&copy; Hadijah 2017</p>
-        </footer>
- 
-    
-    
-</body>
- </div>
-   
+</div>
+<br>
+<br>
+<div id="welcome">
+<h1>WELCOME TO YUMMY RECIPES </h1>
+</div>     
+
+<br>
+<br>
+
+</body>  
 </html>

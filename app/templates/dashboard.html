@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Python Flask Yummy Recipes App</title>
+   <link rel="stylesheet" href="static/css/style.css">
+ 
+ 
+</head>
+<div id="header">
+    <a href="{{url_for('main')}}"><image src="../static/images/image4.jpg" width="180" height="160" style="border-radius:15px;"></image></a>
+<div id="menu">
+    <a href="{{url_for('main')}}"><input type="button"    name="logout" value="LOGOUT"></a>                      
+</div>
+</div>
+<body>
+ <div id="recipebar">
+    <div class="container">
+    
+        <section>
+            <fieldset>
+                    
+                    
+                        
+  <h2><legend>Create Your Yummy Recipes</legend></h2>
+  <form method="post" action="{{url_for('add_category')}}">                                       
+            <h3><label >Recipe category</label></h3>
+                <input type="text" name="title"  placeholder="recipe category" >
+                                           <br><br>
+                    
+                    <input type='submit' value='Add Category'/>
+                
+ </form>
+</fieldset>
+</div>
+    {% for name, category in categories.items() %}
+    <ul>
+        <li><h3><a href="{{ url_for('show_recipe',category_title=name) }}" class="text-muted">{{name}}</a>
+                <a href="{{url_for('edit_category',title=name)}}"><input type='button' value='Edit Category'/></a>
+                <a href="{{url_for('delete_category',title=name)}}"><input type='submit' value='Delete Category'/></a>
+            </h3>
+            </li>
+    </ul>
+          
+    {% endfor %}
+ 
+                
+      
+
+       
+        <footer class="footer">
+            <p>&copy; Hadijah 2017</p>
+        </footer>
+ 
+    </div>
+</body>
+ 
+</html>
