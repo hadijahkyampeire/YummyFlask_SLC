@@ -45,7 +45,7 @@ class Category(object):
             return True
         return False
 
-    def edit_recipe(self, title, new_title):
+    def edit_recipe(self, title,  new_title):
         """ edit recipe method"""
         if title in self.recipes:
             self.recipes[new_title] = self.recipes.pop(title)

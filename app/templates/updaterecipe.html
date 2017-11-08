@@ -1,0 +1,16 @@
+{% block form %}
+        <h3>UPDATE RECIPE</h3>
+        <fieldset>
+        <form  method="POST" action"">
+                <label for="recipename" ><h2>New recipe name </h2></label>
+                <input type="text"  id="recipename" name="name"  required>
+                <label for="recipecontents" ><h2>Contents </h2></label>
+                <textarea  name="contents"  rows="5" cols="15" required ></textarea>
+                <label for="instructions" ><h2>Instructions </h2></label>
+                <textarea   name="instructions"  rows="10" cols="15" required></textarea>
+            <br>
+            <button type="submit" > Save </button>
+            <a href="{{ url_for('show_recipe',category_title=session['category_title']) }}" ></a>
+        </form>
+    </fieldset>
+{% endblock %}

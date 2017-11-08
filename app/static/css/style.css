@@ -21,7 +21,7 @@
 #header {
    padding: 5px;
    background-color: grey;
-   height: 150; 
+   height: 180; 
    
 }
 #menu{
@@ -34,11 +34,19 @@
 }
 #signup {
     background: green;
-    width: 80px;
-    height: 30px;
+    width: 180px;
+    height: 80px;
+}
+#signin{
+    background: blue;
+    width: 120px;
+    height: 80px;
+}
+#welcome{
+   text-align: center; 
 }
 #signbar{
-background: blueviolet;
+background: lightcyan;
 }
 #views{
 background: lightgrey;
@@ -60,16 +68,7 @@ text-align: center;
     height: 30px;
     padding-bottom: 20px;
 }
-#signin{
-    background: blue;
-    width: 80px;
-    height: 30px;
-}
-#home{
-    background: lightgrey;
-    width: 80px;
-    height: 30px;
-}
+
 
 .footer{
     text-align: center;

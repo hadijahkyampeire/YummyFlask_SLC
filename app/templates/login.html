@@ -5,15 +5,16 @@
  
 <title>ALREADY HAVE AN ACCOUNT</title>
 </head>
-<div id="main">
+    <div id="header">
+					<a href="{{url_for('main')}}"><image src="../static/images/image4.jpg" width="180" height="160" style="border-radius:15px;"></image></a>
+				<div id="menu">
+					<a href="{{url_for('main')}}"><input type="button"    name="logout" value="LOGOUT"></a>                      
+				</div>
+			</div>
 <div id="logbar">
-<div id="background">
-
-      <div id="header">
+<div id="main">
 	  <h1> LOGIN HERE<span></span></h1>
-	 
-	  </div>
-	  </div>
+	  
 <body>
 <form method="POST" name="login" action="{{url_for('showlogin')}}">
 {%  if error %}

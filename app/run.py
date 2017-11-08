@@ -54,7 +54,7 @@ def showlogin():
         if result == "Login successful":
             session['email'] = request.form['email_field']
             return redirect(url_for('category'))
-        flash(result, 'warning')
+        flash("wrong credentials")
     return render_template('login.html')
 
 
@@ -117,7 +117,9 @@ def add_recipe():
         return redirect(url_for('show_recipe', category_title=session['current_category_title']))
     return render_template('addrecipe.html', recipes=Users[session['email']]
                            .categories[session['current_category_title']].recipes)
-@app.route('/delete_recipe/<name>',methods=['GET', 'POST'])
+
+
+@app.route('/delete_recipe/<name>', methods=['GET', 'POST'])
 def delete_recipe(name):
     """ Handles request to delete a recipe """
     result = Users[session['email']].categories[session['current_category_title']].delete_recipe(
@@ -127,6 +129,31 @@ def delete_recipe(name):
     else:
         flash("not deleted")
     return redirect(url_for('show_recipe', category_title=session['current_category_title']))
+
+
+@app.route('/update_recipe/<name>', methods=['GET', 'POST'])
+def update_recipe(name):
+    """ Handles request to update a recipe """
+    session['name'] = name
+    if request.method == 'POST':
+        result1 = (Users[session['email']].categories[session['current_category_title']].
+                   edit_recipe(session['name'], request.form['name']))
+        if result1 == True:
+            flash("updated")
+        else:
+            flash("not succeeded")
+        return redirect(url_for('show_recipe', category_title=session['current_category_title']))
+    return render_template('updaterecipe.html', recipe=Users[session['email']]
+                           .categories[session['current_category_title']].recipes[name],
+                           recipes=Users[session['email']].
+                           categories[session['current_category_title']].recipes)
+@app.route('/logout')
+def logout():
+    """ logs out users """
+    session.pop('email')
+    flash('You have logged out')
+    return redirect(url_for('main'))
+
 
 if __name__ == "__main__":
     app.run(debug=True)

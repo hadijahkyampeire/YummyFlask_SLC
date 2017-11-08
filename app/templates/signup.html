@@ -10,18 +10,14 @@ label{display:inline-block;width:100px;margin-bottom:10px;}
  
 <title>New User</title>
 </head>
-<div id="main">
+<div id="header">
+		<a href="{{url_for('main')}}"><image src="../static/images/image4.jpg" width="180" height="160" style="border-radius:15px;"></image></a>
+	<div id="menu">
+		<a href="{{url_for('showlogin')}}"><input type="button"   id="signin" name="signin" value="LOGIN"></a>                      
+</div>  
+</div> 
 <div id="signbar">
-<div id="background">
-
-      <div id="header">
-					<a href="{{url_for('main')}}"><image src="../static/images/image4.jpg" width="180" height="160" style="border-radius:15px;"></image></a>
-				<div id="menu">
-					<a href="{{url_for('showlogin')}}"><input type="button"   id="signin" name="signin" value="LOGIN"></a>                      
-			</div>   
-	  <h1> CREATE AN ACCOUNT/ REGISTER AS A NEW USER<span></span></h1>
-	  </div>
-	  
+	  <h1> CREATE AN ACCOUNT/ REGISTER AS A NEW USER<span></span></h1> 
 <body>
 <form method="POST" action="{{url_for('signup')}}">
 <label>First Name</label>
@@ -40,7 +36,6 @@ label{display:inline-block;width:100px;margin-bottom:10px;}
 <input  name="signup" id="signup"  value="SIGNUP" type="Submit"> 
 </form>
 
-</div>
 </div>
 </body>
 </html>
