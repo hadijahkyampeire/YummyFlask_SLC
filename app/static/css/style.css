@@ -21,14 +21,12 @@
 #header {
    padding: 5px;
    background-color: grey;
-   height: 180; 
-   
+   height: 180;  
 }
 #menu{
     float: right;
     padding-top: 80px;
 }  
-   
 #recipebar{
     background: lightgrey;
 }
@@ -68,22 +66,30 @@ text-align: center;
     height: 30px;
     padding-bottom: 20px;
 }
-
-
+#signin{
+    background: blue;
+    width: 70px;
+    height: 20px;
+}
+#home{
+    background: lightgrey;
+    width: 70px;
+    height: 20px;
+}
+#view{
+    background: lightblue;
+    width: 120px;
+    height: 20px;
+}
 .footer{
     text-align: center;
     background: lightblue;
-   padding-bottom: 5px;
+    padding-bottom: 5px;
     height: 40px;
-    
-
 }
-
 #words{
 text-align: center;
-
 }
-
 #sidebar h3 {
     font-size: 24px;
     color: #044055;

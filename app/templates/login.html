@@ -29,7 +29,16 @@
 <label>Submit</label>
 <input  name="signin" id="signin" value="LOGIN" type="Submit"> 
 </form>
+<h3> Failed to Login!! then go back and Signup first</h3>
+ <a href="{{url_for('signup')}}"><input type="button"   id="signup" name="signin" value="BACK"></a>
+<h3> Logout here</h3>
+ <a href="{{url_for('main')}}"><input type="button"  id="home" name="home" value="LOGOUT"></a>
+ 
 </div>
 </div>
+<footer class="footer">
+            <p>&copy; Hadijah 2017</p>
+        </footer>
+ 
 </body>
 </html>
