@@ -86,7 +86,7 @@ def delete_category(title):
     if result == True:
         flash("delete successful")
     else:
-        flash(result, 'warning')
+        flash("cant delete its empty")
     return redirect(url_for('category'))
 
 
@@ -99,7 +99,7 @@ def edit_category(title):
         if return_value == True:
             flash("edited category successfully")
             return redirect(url_for('category'))
-
+        flash("error! please put a category")
     return render_template('editcategory.html')
 
 

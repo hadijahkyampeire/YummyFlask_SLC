@@ -11,14 +11,14 @@ class User(object):
 
     def add_category(self, title):
         """ add category method"""
-        if  title not in self.categories and title !="" and title!=" ":
+        if title not in self.categories and title != "" and title != " ":
             self.categories[title] = Category(title)
             return True
         return False
 
     def edit_category(self, title, new_title):
         """ edit category method"""
-        if title in self.categories:
+        if title in self.categories and new_title != "" and new_title !=" ":
             self.categories[new_title] = self.categories.pop(title)
             return True
         return False
@@ -40,7 +40,7 @@ class Category(object):
 
     def add_recipe(self, title, contents, instructions):
         """ add recipe method"""
-        if not title in self.recipes and title!="" and title!="":
+        if not title in self.recipes and title != "" and title != "":
             self.recipes[title] = Recipe(title, contents, instructions)
             return True
         return False
