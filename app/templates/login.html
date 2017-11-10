@@ -11,7 +11,7 @@
     <div id="header">
 					<a href="{{url_for('main')}}"><image src="../static/images/image4.jpg" width="180" height="160" style="border-radius:15px;"></image></a>
 				<div id="menu">
-					<a href="{{url_for('logout')}}"><input type="button"    name="logout" value="LOGOUT"></a>                      
+					<!-- <a href="{{url_for('logout')}}"><input type="button"    name="logout" value="LOGOUT"></a>                       -->
 				</div>
 			</div>
 <div id="logbar">
@@ -21,10 +21,10 @@
 <body>
 <form method="POST" name="login" action="{{url_for('showlogin')}}">
 <label>Email</label>
-<input type="text" name="email_field"  required=""/>
+<input type="email" name="email_field"  />
 <br /><br>
 <label>Pass word</label>
-<input type="password" name="password_field" required="" />
+<input type="password" name="password_field"  />
 <br /><br>
 <input  name="signin" id="signin" value="LOGIN" type="Submit"> 
 </form>
