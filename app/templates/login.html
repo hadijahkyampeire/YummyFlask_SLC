@@ -1,3 +1,6 @@
+{% extends 'layout.html' %}
+
+{% block body %}
 <html>
 <head>
 <link rel="stylesheet" href="static/css/style.css">
@@ -8,7 +11,7 @@
     <div id="header">
 					<a href="{{url_for('main')}}"><image src="../static/images/image4.jpg" width="180" height="160" style="border-radius:15px;"></image></a>
 				<div id="menu">
-					<a href="{{url_for('main')}}"><input type="button"    name="logout" value="LOGOUT"></a>                      
+					<a href="{{url_for('logout')}}"><input type="button"    name="logout" value="LOGOUT"></a>                      
 				</div>
 			</div>
 <div id="logbar">
@@ -17,9 +20,6 @@
 	  
 <body>
 <form method="POST" name="login" action="{{url_for('showlogin')}}">
-{%  if error %}
-<p>{{ error }} </p>
-{% endif %}
 <label>Email</label>
 <input type="text" name="email_field"  required=""/>
 <br /><br>
@@ -37,3 +37,4 @@
  
 </body>
 </html>
+{% endblock%}

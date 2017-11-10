@@ -40,7 +40,7 @@ class Category(object):
 
     def add_recipe(self, title, contents, instructions):
         """ add recipe method"""
-        if not title in self.recipes:
+        if not title in self.recipes and title!="" and title!="":
             self.recipes[title] = Recipe(title, contents, instructions)
             return True
         return False

@@ -1,9 +1,11 @@
 
 from flask import Flask, flash, render_template, session, url_for, redirect, request
 from models import User, Category, Recipe
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
 app.secret_key = 'secret'
+bootstrap = Bootstrap(app)
 Users = {}
 
 
@@ -39,9 +41,10 @@ def signup():
         returnvalue = register(request.form['firstname_field'], request.form['lastname_field'],
                                request.form['email_field'], request.form['password_field'])
         if returnvalue == "Registration successful":
-            flash(returnvalue, 'info')
+            flash('You are now registered go ahead and login')
             return redirect(url_for('showlogin'))
-        flash(returnvalue, 'warning')
+        flash('Account not created try again')
+        return redirect(url_for('signup'))
     return render_template('signup.html')
 
 
@@ -53,8 +56,9 @@ def showlogin():
                        request.form['password_field'])
         if result == "Login successful":
             session['email'] = request.form['email_field']
+            flash("logged in successfully, welcome")
             return redirect(url_for('category'))
-        flash("wrong credentials")
+        flash("wrong credentials try again")
     return render_template('login.html')
 
 
@@ -70,7 +74,9 @@ def add_category():
         return_value = Users[session['email']
                              ].add_category(request.form['title'])
         if return_value == True:
+            flash("category added successful")
             return redirect(url_for('category'))
+        flash("category not added")
     return render_template('dashboard.html', categories=Users[session['email']].categories)
 
 
@@ -91,8 +97,9 @@ def edit_category(title):
         return_value = Users[session['email']].edit_category(
             session['category_title'], request.form['title'])
         if return_value == True:
+            flash("edited category successfully")
             return redirect(url_for('category'))
-            flash("edited category")
+
     return render_template('editcategory.html')
 
 
@@ -111,7 +118,7 @@ def add_recipe():
         result = Users[session['email']].categories[session['current_category_title']].add_recipe(
             request.form['name'], request.form['contents'], request.form['instructions'])
         if result == True:
-            flash("recipe added")
+            flash("recipe added successfully")
         else:
             flash("Not added")
         return redirect(url_for('show_recipe', category_title=session['current_category_title']))
@@ -125,7 +132,7 @@ def delete_recipe(name):
     result = Users[session['email']].categories[session['current_category_title']].delete_recipe(
         name)
     if result == True:
-        flash("deleted")
+        flash("recipe deleted")
     else:
         flash("not deleted")
     return redirect(url_for('show_recipe', category_title=session['current_category_title']))
@@ -139,7 +146,7 @@ def update_recipe(name):
         result1 = (Users[session['email']].categories[session['current_category_title']].
                    edit_recipe(session['name'], request.form['name']))
         if result1 == True:
-            flash("updated")
+            flash("update successfully")
         else:
             flash("not succeeded")
         return redirect(url_for('show_recipe', category_title=session['current_category_title']))
@@ -147,11 +154,13 @@ def update_recipe(name):
                            .categories[session['current_category_title']].recipes[name],
                            recipes=Users[session['email']].
                            categories[session['current_category_title']].recipes)
+
+
 @app.route('/logout')
 def logout():
     """ logs out users """
     session.pop('email')
-    flash('You have logged out')
+    flash('You have logged out thanks')
     return redirect(url_for('main'))
 
 

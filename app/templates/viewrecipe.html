@@ -1,6 +1,8 @@
+{% extends 'layout.html'%}
+{% block body%}
 <html>
 <head>
-<link rel="stylesheet" href="static/css/style.css">
+<link rel="stylesheet" href="../static/css/style.css">
 </head>
 
 <div id="header">
@@ -8,12 +10,13 @@
 <div id="menu">
     <a href="{{url_for('main')}}"><input type="button"    name="logout" value="LOGOUT"></a>
     <a href="{{url_for('category')}}"><input type="button"    name="category" value="View categories"></a>
-    <a href="{{url_for('add_recipe')}}"><input type="button"    name="addrecipe" value="Add recipes"></a>                      
+      
 </div>
 </div>
 {% block heading %}     
 <h1>Category
-        <a > - {{ session['current_category_title'] }}</a></h1>
+        <a > : {{ session['current_category_title'] }}</a>
+        <a href="{{url_for('add_recipe')}}"><input type="button"    name="addrecipe" value="Add recipes"></a>  </h1>                  
 {% endblock %}
 <fieldset>
  {% for name, recipe in recipes.items() %}
@@ -28,3 +31,4 @@
 </fieldset>
 
     </html>
+{% endblock%}
