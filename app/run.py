@@ -1,12 +1,14 @@
-
 from flask import Flask, flash, render_template, session, url_for, redirect, request
-from models import User, Category, Recipe
+from models.user import User
+from models.category import Category
+from models.recipe import Recipe
+
 from flask_bootstrap import Bootstrap
+Users = {}
 
 app = Flask(__name__)
 app.secret_key = 'secret'
 bootstrap = Bootstrap(app)
-Users = {}
 
 
 def register(firstname, lastname, email, password):
@@ -56,7 +58,7 @@ def showlogin():
                        request.form['password_field'])
         if result == "Login successful":
             session['email'] = request.form['email_field']
-            flash("logged in successfully, welcome")
+            flash("logged in successfully, welcome ")
             return redirect(url_for('category'))
         flash("wrong credentials try again")
     return render_template('login.html')
@@ -76,7 +78,7 @@ def add_category():
         if return_value == True:
             flash("category added successful")
             return redirect(url_for('category'))
-        flash("category not added")
+        flash("error! you can't add an empty title")
     return render_template('dashboard.html', categories=Users[session['email']].categories)
 
 
@@ -120,7 +122,7 @@ def add_recipe():
         if result == True:
             flash("recipe added successfully")
         else:
-            flash("Not added")
+            flash("Recipe Not added")
         return redirect(url_for('show_recipe', category_title=session['current_category_title']))
     return render_template('addrecipe.html', recipes=Users[session['email']]
                            .categories[session['current_category_title']].recipes)
@@ -138,20 +140,22 @@ def delete_recipe(name):
     return redirect(url_for('show_recipe', category_title=session['current_category_title']))
 
 
-@app.route('/update_recipe/<name>', methods=['GET', 'POST'])
-def update_recipe(name):
+@app.route('/update_recipe/<title>', methods=['GET', 'POST'])
+def update_recipe(title):
     """ Handles request to update a recipe """
-    session['name'] = name
+    recipe=Users[session['email']].categories[session['current_category_title']].recipes[title]
     if request.method == 'POST':
         result1 = (Users[session['email']].categories[session['current_category_title']].
-                   edit_recipe(session['name'], request.form['name']))
+                   edit_recipe(recipe.title,request.form['name']))
         if result1 == True:
-            flash("update successfully")
+            flash("update successful")
+            return redirect(url_for('show_recipe', category_title=session['current_category_title'],recipe=Users[session['email']]
+                           .categories[session['current_category_title']].recipes[title]))
         else:
             flash("not succeeded")
-        return redirect(url_for('show_recipe', category_title=session['current_category_title']))
+        
     return render_template('updaterecipe.html', recipe=Users[session['email']]
-                           .categories[session['current_category_title']].recipes[name],
+                           .categories[session['current_category_title']].recipes[title],
                            recipes=Users[session['email']].
                            categories[session['current_category_title']].recipes)
 
