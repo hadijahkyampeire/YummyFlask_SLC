@@ -104,3 +104,4 @@ venv.bak/
 .mypy_cache/
 .vscode/settings.json
 app/__pycache__/models.cpython-35.pyc
+app/__pycache__/models.cpython-35.pyc
