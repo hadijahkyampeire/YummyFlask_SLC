@@ -13,7 +13,8 @@
       
 </div>
 </div>
-{% block heading %}     
+{% block heading %} 
+<h3>Continue {{ session['email'] }}, its all yours</h3>    
 <h1>Category
         <a > : {{ session['current_category_title'] }}</a>
         <a href="{{url_for('add_recipe')}}"><input type="button"    name="addrecipe" value="Add recipes"></a>  </h1>                  
@@ -25,7 +26,7 @@
                 <h3>Contents: {{ recipe.contents }}</h3>
                 <h3>Instructions: {{  recipe.instructions }}</h3>
                 <a href="{{url_for('delete_recipe',name=name)}}"><input type='submit' value='Delete Recipe'/></a>
-                <a href="{{url_for('update_recipe',name=name)}}"><input type='submit' value='Update Recipe'/></a>
+                <a href="{{url_for('update_recipe',title=name, contents=recipe.contents,instructions=recipe.instructions)}}"><input type='submit' value='Update Recipe'/></a>
             </ul>
     {% endfor %}
 </fieldset>
