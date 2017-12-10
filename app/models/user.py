@@ -1,12 +1,11 @@
+from .category import Category
 class User(object):
-	"""docstring for User_functionalities"""
-	def __init__(self, first_name,last_name,email,password):
-		self.first_name=first_name
-		self.last_name=last_name
-		self.email=email
-		self.password=password
+    """docstring for User_functionalities"""
 
-
-
-
-		
+    def __init__(self, firstname, lastname, email, password):
+        self.firstname = firstname
+        self.lastname = lastname
+        self.email = email
+        self.password = password
+      
+    

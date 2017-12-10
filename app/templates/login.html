@@ -1,3 +1,6 @@
+{% extends 'layout.html' %}
+
+{% block body %}
 <html>
 <head>
 <link rel="stylesheet" href="static/css/style.css">
@@ -8,7 +11,7 @@
     <div id="header">
 					<a href="{{url_for('main')}}"><image src="../static/images/image4.jpg" width="180" height="160" style="border-radius:15px;"></image></a>
 				<div id="menu">
-					<a href="{{url_for('main')}}"><input type="button"    name="logout" value="LOGOUT"></a>                      
+					<!-- <a href="{{url_for('logout')}}"><input type="button"    name="logout" value="LOGOUT"></a>                       -->
 				</div>
 			</div>
 <div id="logbar">
@@ -17,23 +20,14 @@
 	  
 <body>
 <form method="POST" name="login" action="{{url_for('showlogin')}}">
-{%  if error %}
-<p>{{ error }} </p>
-{% endif %}
 <label>Email</label>
-<input type="text" name="email_field"  required=""/>
+<input type="email" name="email_field"  />
 <br /><br>
 <label>Pass word</label>
-<input type="password" name="password_field" required="" />
+<input type="password" name="password_field"  />
 <br /><br>
-<label>Submit</label>
 <input  name="signin" id="signin" value="LOGIN" type="Submit"> 
 </form>
-<h3> Failed to Login!! then go back and Signup first</h3>
- <a href="{{url_for('signup')}}"><input type="button"   id="signup" name="signin" value="BACK"></a>
-<h3> Logout here</h3>
- <a href="{{url_for('main')}}"><input type="button"  id="home" name="home" value="LOGOUT"></a>
- 
 </div>
 </div>
 <footer class="footer">
@@ -42,3 +36,4 @@
  
 </body>
 </html>
+{% endblock%}

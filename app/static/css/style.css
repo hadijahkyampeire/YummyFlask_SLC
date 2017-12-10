@@ -32,13 +32,13 @@
 }
 #signup {
     background: green;
-    width: 180px;
-    height: 80px;
+    width: 90px;
+    height: 40px;
 }
 #signin{
     background: blue;
-    width: 120px;
-    height: 80px;
+    width: 90px;
+    height: 40px;
 }
 #welcome{
    text-align: center; 
@@ -62,14 +62,9 @@ text-align: center;
 	z-index: 10;
 	border:1;
     background: green;
-    width: 200px;
+    width: 80px;
     height: 30px;
     padding-bottom: 20px;
-}
-#signin{
-    background: blue;
-    width: 70px;
-    height: 20px;
 }
 #home{
     background: lightgrey;
@@ -89,21 +84,4 @@ text-align: center;
 }
 #words{
 text-align: center;
-}
-#sidebar h3 {
-    font-size: 24px;
-    color: #044055;
-    font-weight: normal;
-    padding-bottom: 10px;
-    padding-left: 10px;
-}
-#sidebar {
-    float: center;
-    margin-left: 0px;
-    margin-top: 0px;
-    background: grey;
-    border: 1px solid #BEBDBD;
-    padding: 0px; 
-    width: 1000;
-    height: 1000;
 }

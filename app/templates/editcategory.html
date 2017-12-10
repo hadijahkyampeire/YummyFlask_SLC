@@ -1,18 +1,23 @@
+{% extends 'layout.html'%}
+{% block body%}
 <html>
 <head>
 		<title>Editing</title>
-	<link rel="stylesheet" href="static/css/style.css">
+	<link rel="stylesheet" href="../static/css/style.css">
 	 
 	</head>
 <div id="updatebar">
 {% block form %}
     
-            <h6 >UPDATE CATEGORY</h6>
+            <h2 >UPDATE CATEGORY</h2>
+            <fieldset>
             <form  method="POST" >                
                 <label for="categoryname" ><h3> Update Category Name</h3></label>
                 <input type="text" id="category" name="title" value="{{ session['category_title'] }}" >
                 <button type="submit" > Save </button>
             </form>
+            </fieldset>
 {% endblock %}
 </div>
 </html>
+{% endblock %}
