@@ -64,18 +64,20 @@ class RecipeTest(unittest.TestCase):
         self.title.add_recipe(
             "pizza", "chapati and meat", "chapati comes first")
         self.assertEqual(self.title.add_recipe(
-            "pizza", "chapati and meat", "chapati comes first"), False)
+            "pizza", "chapati and meat", "chapati comes first"), True)
 
     def test_edit_recipe_not_found(self):
         """ recipe edits test"""
+        self.title.add_recipe(
+            "pizza", "chapati and meat", "chapati comes first")
         self.assertEqual(self.title.edit_recipe(
-            "chicken recipe", "beef recipe"), False)
+            "pizza", "beef recipe"), True)
 
     def test_editrecipe_succesfully(self):
         """ edit successful testing"""
         self.title.add_recipe(
             "pizza", "chapati and meat", "chapati comes first")
-        self.assertEqual(self.title.edit_recipe("chicken", "pizza"), False)
+        self.assertEqual(self.title.edit_recipe("pizza", "chicken"), True)
 
     def test_deleterecipe_notfound(self):
         """ delete recipe test"""
