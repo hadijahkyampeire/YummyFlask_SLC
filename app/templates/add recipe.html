@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Python Flask Yummy Recipes App</title>
+   <link rel="stylesheet" href="static/css/style.css">
+ 
+ 
+</head>
+ 
+<body>
+ <div id="recipebar">
+    <div class="container">
+        <div class="header">
+            
+            <h2 >Python Flask Yummy Recipes App</h2>
+        </div>
+        <section>
+            <form method="post" action="">
+                <fieldset>
+ 
+                    <!-- Form Name -->
+                    <h2><legend>Create Your Yummy Recipes</legend></h2>
+ 
+                    <!-- Text input-->
+                    
+                        <h3><label >Recipe category</label></h3>
+                            <input type="text" name="title"  placeholder="recipe category" >
+                    <br>
+ 
+                    <!-- Textarea -->
+                        <h3><label >Items of the Recipe Category</label><br></h3>
+                        
+                            <input type="text" name="item1"  placeholder="item1" ><br><br>
+
+                            <input type="text" name="item2"  placeholder="item2" ><br><br>
+
+                            <input type="text" name="item3"  placeholder="item3" ><br><br>
+
+                            <input type="text" name="item4"  placeholder="item4" ><br><br>
+                    
+ 
+                    <!-- Button -->
+                        
+                            <a href="{{url_for('addrecipes')}}"><input name="create" id="save" type="submit" value="Save Your Recipe category" /></a>
+                    <br><br>
+                    </fieldset>
+                    </form>
+
+ 
+                    <a href="{{url_for('recipes')}}"><input type="button"  id="view" value="View Your saved Recipes" /></a>
+</section>
+</div>
+       
+        <footer class="footer">
+            <p>&copy; Hadijah 2017</p>
+        </footer>
+ 
+    </div>
+</body>
+ 
+</html>
