@@ -12,9 +12,8 @@ install:
  
 
 # command to run tests
-script:
-  - nosetests  
-
-
-after_success:
+script: 
+  - nosetests --with-coverage
+# command for coverage reporting
+after_success: 
   - coveralls
