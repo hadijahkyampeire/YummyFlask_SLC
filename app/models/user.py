@@ -7,5 +7,5 @@ class User(object):
         self.lastname = lastname
         self.email = email
         self.password = password
-        self.categories = {}
+      
     
