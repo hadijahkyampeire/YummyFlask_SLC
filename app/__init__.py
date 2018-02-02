@@ -1,7 +1,7 @@
 from flask import Flask, flash, render_template, session, url_for, redirect, request
-from models.user import User
-from models.category import Category
-from models.recipe import Recipe
+from .models.user import User
+from .models.category import Category
+from .models.recipe import Recipe
 
 from flask_bootstrap import Bootstrap
 Users = {}
