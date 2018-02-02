@@ -1,5 +1,6 @@
+
 {% block form %} 
-    
+
         <h3 >CREATE RECIPES HERE</h2>
             <fieldset>
         <form  method="POST" action="">
@@ -9,10 +10,8 @@
             <textarea  name="contents" placeholder="e.g tomatoes" rows="5" cols="15" ></textarea>
             <label for="instructions" ><h2>Instructions </h2></label>
             <textarea  id="recipename" name="instructions" placeholder="e.g add this after this" rows="5" cols="20" ></textarea>
-            <h3><button type="submit" >Create Recipe</button></h3>
+            <h3><button type="submit"  class="btnrecipe" >Create Recipe</button></h3>
             <a href="{{ url_for('show_recipe',category_title=session['category_title']) }}"></a>
         </form>
     </fieldset>
-    </div>
-</div>
 {% endblock %}  

@@ -31,20 +31,53 @@
     background: lightgrey;
 }
 #signup {
-    background: green;
-    width: 90px;
-    height: 40px;
+    width: 80px;
+    height: 30px;
+    background-color:lightseagreen;
+    border: solid 1px #000;
+    border-radius: 10px
 }
 #signin{
-    background: blue;
-    width: 90px;
-    height: 40px;
+    width: 80px;
+    height: 30px;
+    background-color:lightskyblue;
+    border: solid 1px #000;
+    border-radius: 10px
+}
+.btnrecipeedit{
+    width: 100px;
+    height: 30px;
+    background-color:rgb(102, 126, 139);
+    border: solid 1px #000;
+    border-radius: 10px
+    
+}
+.btnrecipeadd{
+    width: 100px;
+    height: 30px;
+    background-color:rgb(73, 167, 94);
+    border: solid 1px #000;
+    border-radius: 10px
+    
+}
+.btnrecipedel{
+    width: 100px;
+    height: 30px;
+    background-color:rgb(172, 66, 66);
+    border: solid 1px #000;
+    border-radius: 10px
+    
 }
 #welcome{
    text-align: center; 
 }
 #signbar{
 background: lightcyan;
+text-align: center;
+height: 400px;
+}
+.addrecipe{
+    background:lightgray;
 }
 #views{
 background: lightgrey;
@@ -85,3 +118,4 @@ text-align: center;
 #words{
 text-align: center;
 }
+

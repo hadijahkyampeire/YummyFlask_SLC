@@ -3,21 +3,22 @@
 <html>
 <head>
 <link rel="stylesheet" href="../static/css/style.css">
+<link rel="stylesheet" href="../static/css/bootstrap.css">
 </head>
 
 <div id="header">
     <a href="{{url_for('logout')}}"><image src="../static/images/image4.jpg" width="180" height="160" style="border-radius:15px;"></image></a>
 <div id="menu">
     <!-- <a href="{{url_for('main')}}"><input type="button"    name="logout" value="LOGOUT"></a> -->
-    <a href="{{url_for('category')}}"><input type="button"    name="category" value="View categories"></a>
+    <a href="{{url_for('category')}}"><input type="button"  class="btnrecipeadd"  name="category" value="View categories"></a>
       
 </div>
 </div>
 {% block heading %} 
 <h3>Continue {{ session['email'] }}, its all yours</h3>    
-<h1>Category
-        <a > : {{ session['current_category_title'] }}</a>
-        <a href="{{url_for('add_recipe')}}"><input type="button"    name="addrecipe" value="Add recipes"></a>  </h1>                  
+<h2>Category
+        <a > : {{ session['current_category_title'] }}</a></h2> 
+        <a href="{{url_for('add_recipe')}}"><input type="button"  class="btnrecipeadd" name="addrecipe" value="Add recipes"></a>                  
 {% endblock %}
 <fieldset>
  {% for name, recipe in recipes.items() %}
@@ -25,8 +26,8 @@
     <ul><li><h2 >RecipeName: {{ name }}</h2></li>
                 <h3>Contents: {{ recipe.contents }}</h3>
                 <h3>Instructions: {{  recipe.instructions }}</h3>
-                <a href="{{url_for('delete_recipe',name=name)}}"><input type='submit' value='Delete Recipe'/></a>
-                <a href="{{url_for('update_recipe',title=name, contents=recipe.contents,instructions=recipe.instructions)}}"><input type='submit' value='Update Recipe'/></a>
+                <a href="{{url_for('delete_recipe',name=name)}}"><input type='submit' class="btnrecipedel" value='Delete Recipe'/></a>
+                <a href="{{url_for('update_recipe',title=name, contents=recipe.contents,instructions=recipe.instructions)}}"><input type='submit' class="btnrecipeedit" value='Update Recipe'/></a>
             </ul>
     {% endfor %}
 </fieldset>
