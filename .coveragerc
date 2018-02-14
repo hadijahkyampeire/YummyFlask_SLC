@@ -1,3 +1,17 @@
 [report]
 omit= 
     */site-packages/*
+    *bisect.py*
+    *ctypes/*
+    *decimal.py*
+    *encodings/latin_1.py*
+    *hmac.py*
+    *htmlentitydefs.py*
+    *httplib.py*
+    *mimetools.py*
+    *mimetypes.py*
+    *numbers.py*
+    *rfc822.py*
+    *urllib2.py*
+    *uuid.py*
+    *app/__init__.py*
