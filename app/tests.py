@@ -1,7 +1,7 @@
 import unittest
-from app.models.user import User
-from app.models.category import Category
-from app.models.recipe import Recipe
+from .models.user import User
+from .models.category import Category
+from .models.recipe import Recipe
 
 class UserTest(unittest.TestCase):
     """ usertest class setup"""
